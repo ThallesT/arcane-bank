@@ -1,0 +1,52 @@
+<div th:fragment="divFormConta">
+    <div id="divFormConta">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h5 class="text-center text-white font-tertiary">Ultimo passo, juro!</h5>
+                    <h2 class="section-title text-white mb-5">Precisamos saber mais sobre voce!</h2>
+                </div>
+                <div class="col-lg-6 mx-auto">
+                    <form action="/cliente/finalizar-cadastro" method="post" data-target="divFormConta"
+                          class="form-ajax form-group">
+                        <input hidden th:value="${cliente.idCliente}" name="idCliente">
+                        <div class="row mb-2">
+                            <div class="col-lg-6">
+                                <input name="telefone" class="form-control telefone" type="text" placeholder="Telefone">
+                            </div>
+                            <div class="col-lg-6 ">
+                                <input name="celular" class="form-control celular" type="text" placeholder="Celular"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-lg-6">
+                                <input readonly name="cpf" class="form-control cpf" type="text" placeholder="CPF" th:value="${cliente.cpf}">
+                            </div>
+                            <div class="col-lg-6 ">
+                                <input name="rg" class="form-control rg" type="text" placeholder="RG" required>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-lg-6">
+                                <input name="dataDeNascimento" class="form-control date" type="text"
+                                       placeholder="Data de nascimento" required>
+                            </div>
+                            <div class="col-lg-6">
+                                <button class="btn btn-light font-tertiary" type="submit">Finalizar cadastro &nbsp; <i
+                                        class="ti-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- bg shapes -->
+        <img src="/kross-master/images/backgrounds/education-bg.png" alt="map" class="img-fluid bg-map">
+        <img src="/kross-master/images/experience/buraco-negro.png" alt="bg-shape" class="img-fluid bg-shape-1">
+        <img src="/kross-master/images/illustrations/rocket.png" alt="bg-shape" class="img-fluid bg-shape-2">
+        <img src="/kross-master/images/illustrations/moon.png" alt="bg-shape" class="img-fluid bg-shape-3">
+        <img src="/kross-master/images/illustrations/blue-star.png" alt="bg-shape" class="img-fluid bg-shape-4">
+        <img src="/kross-master/images/illustrations/pink-star.png" alt="bg-shape" class="img-fluid bg-shape-5">
+    </div>
+</div>

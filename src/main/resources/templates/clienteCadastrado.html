@@ -1,0 +1,32 @@
+<div th:fragment="divFormConta">
+    <div id="divFormConta">
+        <div class="container">
+            <div class="row">
+                <div th:if="${cliente.autenticado == 'F'}" th:remove="tag">
+                    <div class="col-12 text-center">
+                        <h5 class="text-center text-white font-tertiary">Opa!</h5>
+                        <h2 class="section-title text-white mb-5">Este CPF já está cadastrado, verifique seu e-mail</h2>
+                        <form class="form-group form-ajax" data-target="divFormConta" method="post" action="/cliente/finalizar">
+                            <button type="submit" class="btn btn-light font-tertiary">Finalizar cadastro &nbsp;<i class="ti-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div th:if="${cliente.autenticado == 'T'}" th:remove="tag">
+                    <div class="col-12 text-center">
+                        <h5 class="text-center text-white font-tertiary">Opa!</h5>
+                        <h2 class="section-title text-white mb-5">Voce já é nosso cliente!</h2>
+                        <button class="btn btn-light font-tertiary">Logar &nbsp;<i class="ti-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- bg shapes -->
+        <img src="/kross-master/images/backgrounds/education-bg.png" alt="map" class="img-fluid bg-map">
+        <img src="/kross-master/images/experience/buraco-negro.png" alt="bg-shape" class="img-fluid bg-shape-1">
+        <img src="/kross-master/images/illustrations/rocket.png" alt="bg-shape" class="img-fluid bg-shape-2">
+        <img src="/kross-master/images/illustrations/moon.png" alt="bg-shape" class="img-fluid bg-shape-3">
+        <img src="/kross-master/images/illustrations/blue-star.png" alt="bg-shape" class="img-fluid bg-shape-4">
+        <img src="/kross-master/images/illustrations/pink-star.png" alt="bg-shape" class="img-fluid bg-shape-5">
+    </div>
+</div>
