@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <title>Arcane Bank</title>
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/kross-master/plugins/bootstrap/bootstrap.min.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/kross-master/plugins/slick/slick.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/kross-master/plugins/themify-icons/themify-icons.css">
+
+    <!-- Main Stylesheet -->
+    <link href="/kross-master/css/style.css" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="icon" href="favicon-96x96.png" type="image/x-icon"/>
+
+</head>
+
+<body class="bg-primary">
+
+<div class="row justify-content-center">
+    <div class="col-lg-6 mx-auto login-box">
+        <header class="">
+            <h3 class="font-azonix text-center mt-4">Arcane Bank</h3>
+            <h4 class="text-center font-tertiary mt-4">Logar</h4>
+        </header>
+        <div class="container">
+            <form action="/validar-login" method="post"
+                  class="form-group">
+                <div class="row mb-2 justify-content-center">
+                    <div class="col-lg-8">
+                        <input name="cpf" class="form-control mt-2 cpf" type="text" placeholder="CPF" required>
+                    </div>
+                    <div class="col-lg-8 ">
+                        <input name="senha" class="form-control mt-2" type="password" placeholder="Senha" required>
+                    </div>
+                    <button class="btn btn-light font-tertiary mt-2" id="botao-finaliza" type="submit">Entrar &nbsp; <i
+                            class="ti-arrow-right"></i></button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<img src="/kross-master/images/backgrounds/education-bg.png" alt="map" class="img-fluid bg-map">
+<!-- jQuery -->
+<script src="/jQuery-3.3.1.js"></script>
+<!-- Bootstrap JS -->
+<script src="/kross-master/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="/kross-master/plugins/slick/slick.min.js"></script>
+<!-- filter -->
+<script src="/kross-master/plugins/shuffle/shuffle.min.js"></script>
+
+<!-- Main Script -->
+<script src="/kross-master/js/script.js"></script>
+<script src="/geral.js"></script>
+<script src="/assets/js/jsGeral.js"></script>
+<script src="/assets/js/jquery.mask.js"></script>
+<script src="/assets/js/mask.js"></script>
+<script>
+    aplicarMask();
+</script>
+
+
+</body>
+</html>

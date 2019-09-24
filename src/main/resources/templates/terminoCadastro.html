@@ -21,6 +21,14 @@
                         </div>
                         <div class="row mb-2">
                             <div class="col-lg-6">
+                                <input name="senha" id="senha" class="form-control confirma-senha" type="password" placeholder="Senha">
+                            </div>
+                            <div class="col-lg-6 ">
+                                <input class="form-control confirma-senha" id="confirma-senha" type="password" placeholder="Confirmar senha" required>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-lg-6">
                                 <input readonly name="cpf" class="form-control cpf" type="text" placeholder="CPF" th:value="${cliente.cpf}">
                             </div>
                             <div class="col-lg-6 ">
@@ -29,11 +37,11 @@
                         </div>
                         <div class="row mb-2">
                             <div class="col-lg-6">
-                                <input name="dataDeNascimento" class="form-control date" type="text"
+                                <input name="dataDeNascimento" class="form-control danger date" type="text"
                                        placeholder="Data de nascimento" required>
                             </div>
                             <div class="col-lg-6">
-                                <button class="btn btn-light font-tertiary" type="submit">Finalizar cadastro &nbsp; <i
+                                <button class="btn btn-light font-tertiary" id="botao-finaliza" type="submit">Finalizar cadastro &nbsp; <i
                                         class="ti-arrow-right"></i></button>
                             </div>
                         </div>
@@ -49,4 +57,8 @@
         <img src="/kross-master/images/illustrations/blue-star.png" alt="bg-shape" class="img-fluid bg-shape-4">
         <img src="/kross-master/images/illustrations/pink-star.png" alt="bg-shape" class="img-fluid bg-shape-5">
     </div>
+    <script>
+        aplicarMask();
+    </script>
 </div>
+

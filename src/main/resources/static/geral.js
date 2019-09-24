@@ -13,3 +13,17 @@ function pedirCartao(){
         behavior: 'smooth'
     });
 }
+
+$(document).on('keyup','.confirma-senha', function () {
+    var senha =  $('#senha').val();
+    var confirmaSenha =  $('#confirma-senha').val();
+    if (senha != confirmaSenha) {
+        $("#botao-finaliza").attr('disabled', "");
+        $('#senha').addClass("alert-danger")
+        $('#confirma-senha').addClass("alert-danger")
+    } else {
+        $("#botao-finaliza").removeAttr('disabled');
+        $('#senha').removeClass("alert-danger")
+        $('#confirma-senha').removeClass("alert-danger")
+    }
+});
