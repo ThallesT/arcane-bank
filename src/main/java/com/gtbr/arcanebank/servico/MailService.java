@@ -1,15 +1,21 @@
 package com.gtbr.arcanebank.servico;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Component;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.swing.text.Element;
+import java.io.File;
+import java.io.IOException;
 import java.util.Properties;
 
 
 @Component
 public class MailService {
+
 
     public void enviarEmail(String emailCliente, String codigoDeConfirmacao){
         Properties props = new Properties();
@@ -40,10 +46,15 @@ public class MailService {
             //Remetente
 
             Address[] toUser = InternetAddress.parse(emailCliente);
-
+            File arquivo = new File("src\\main\\resources\\templates\\email\\tokenTemplate.html");
+            Document doc = Jsoup.parse(arquivo, "UTF-8");
+            doc.getElementById("recado").text("Nós do Arcane Bank agradecemos o seu interesse!");
+            doc.getElementById("html-token-tag").text("Aqui está seu token: "+ codigoDeConfirmacao);
+            String link = "http://gtbr.sa-east-1.elasticbeanstalk.com/cliente/confirmar-token/"+codigoDeConfirmacao;
+            doc.getElementById("botao").attr("href", link);
             message.setRecipients(Message.RecipientType.TO, toUser);
-            message.setSubject("Email automatico do ArcaneBank");//Assunto
-            message.setText("Seu token de confirmação: "+ codigoDeConfirmacao);
+            message.setSubject("E-mail automatico do ArcaneBank");//Assunto
+            message.setContent(doc.outerHtml(), "text/html");
 
 
 
@@ -54,6 +65,8 @@ public class MailService {
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

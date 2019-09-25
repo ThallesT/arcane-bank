@@ -28,7 +28,7 @@ public class ContaCrud {
             conta.setSaldo(0.0);
             conta.setIdCliente(idCliente);
             conta.setSenha(senha);
-            conta.setIdConta(numeroConta);
+            conta.setConta(numeroConta);
             conta.setLimite(0.0);
             conta.setFoto(null);
             conta.setIdCartao(null);

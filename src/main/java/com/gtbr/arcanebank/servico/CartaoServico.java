@@ -46,7 +46,10 @@ public class CartaoServico {
         String cvv = "";
         for(int a = 0 ; a < 3; a++){
             Random random = new Random();
-            cvv += random.nextInt(9);
+            int numero = random.nextInt(9);
+            if(numero == 0) cvv += numero+1;
+            cvv += numero;
+
         }
         GregorianCalendar gregorianCalendar = new GregorianCalendar(2026, 11, 10);
         cartao.setCvv(Long.parseLong(cvv));
