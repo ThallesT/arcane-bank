@@ -29,9 +29,9 @@ public class ContaServico {
             numeroConta = geraConta();
             Conta conta = contaCrud.getContaByNumeroConta(numeroConta);
             if(conta == null) contaVerif = true;
-        }while (contaVerif = false);
+        }while (contaVerif == false);
 
-        return contaCrud.insereConta(geraConta(), 0001L, cliente.getIdCliente(), gerarHash(senha));
+        return contaCrud.insereConta(numeroConta, 0001L, cliente.getIdCliente(), gerarHash(senha));
 
     }
 

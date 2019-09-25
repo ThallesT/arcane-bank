@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 @Component
 public class ContaCrud {
@@ -28,6 +29,7 @@ public class ContaCrud {
             conta.setIdCliente(idCliente);
             conta.setSenha(senha);
             conta.setIdConta(numeroConta);
+            conta.setLimite(0.0);
             conta.setFoto(null);
             conta.setIdCartao(null);
 
@@ -45,6 +47,11 @@ public class ContaCrud {
         }catch(Exception e){
             return null;
         }
+    }
+
+    @Transactional
+    public void atualizaConta(Conta conta) {
+        entityManager.persist(conta);
     }
 
     public Conta getContaByIdCliente(Long idCliente) {

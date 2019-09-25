@@ -1,4 +1,4 @@
-/*package com.gtbr.arcanebank.config;
+package com.gtbr.arcanebank.config;
 
 import com.gtbr.arcanebank.interceptor.WebInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,4 +21,4 @@ public class SecurityConfig implements WebMvcConfigurer {
     }
 
 
-}*/
+}

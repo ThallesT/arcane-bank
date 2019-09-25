@@ -15,18 +15,19 @@ public class WebInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         String uri = request.getRequestURI();
-        if (uri.equals("/") || uri.equals("/login") || uri.equals("/validar-login") || uri.contains("assets")) {
+
+        if (uri.equals("/") || uri.equals("/logar") || uri.equals("/cliente/registrar") || uri.equals("/cliente/finalizar") || uri.equals("/cliente/finalizar-cadastro") || uri.equals("/cliente/confirmar-token") || uri.equals("/validar-login") || uri.contains("assets") || uri.contains("kross-master") || uri.contains("material-dashboard") || uri.contains("static")) {
             return true;
         }
         if (request.getSession().getAttribute("usuarioLogado") != null) {
-            if (uri.equals("/login") || uri.equals("/validar-login")){
+            if (uri.equals("/logar") || uri.equals("/validar-login")){
                 response.sendRedirect("/");
                 return false;
             }else {
                 return true;
             }
         }
-        response.sendRedirect("/login");
+        response.sendRedirect("/");
         return false;
     }
 }
