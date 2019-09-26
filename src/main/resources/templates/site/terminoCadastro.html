@@ -11,7 +11,7 @@
                           class="form-ajax form-group">
                         <input hidden th:value="${cliente.idCliente}" name="idCliente">
                         <div class="row mb-2">
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 mb-2">
                                 <input name="telefone" class="form-control telefone" type="text" placeholder="Telefone">
                             </div>
                             <div class="col-lg-6 ">
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="row mb-2">
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 mb-2">
                                 <input name="senha" id="senha" class="form-control confirma-senha" type="password" placeholder="Senha">
                             </div>
                             <div class="col-lg-6 ">
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="row mb-2">
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 mb-2">
                                 <input readonly name="cpf" class="form-control cpf" type="text" placeholder="CPF" th:value="${cliente.cpf}">
                             </div>
                             <div class="col-lg-6 ">
@@ -40,7 +40,7 @@
                                 <input name="dataDeNascimento" class="form-control danger date" type="text"
                                        placeholder="Data de nascimento" required>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 mt-2 text-center">
                                 <button class="btn btn-light font-tertiary" id="botao-finaliza" type="submit">Finalizar cadastro &nbsp; <i
                                         class="ti-arrow-right"></i></button>
                             </div>

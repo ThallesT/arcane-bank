@@ -7,8 +7,9 @@ $(window).scroll(function () {
 });
 
 function pedirCartao(){
+    var offset = $('#divFormConta').offset();
     window.scrollTo({
-        top: 3900,
+        top: offset.top -250,
         left: 0,
         behavior: 'smooth'
     });

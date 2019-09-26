@@ -941,4 +941,38 @@ blockquote {
     font-weight: bold;
 }
 
+@media only screen and (max-width: 600px) {
+    .mobile-hide {
+        display:none;
+    }
+    .sol{
+        width: 40%; height: 45%;
+    }
+    .lua{
+        width: 60%; height: 50%;
+    }
+    .buraco-negro{
+        width: 40%; height: 50%;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .desktop-hide {
+        display:none;
+    }
+    .titulo-hide {
+        visibility:hidden;
+    }
+    .sol{
+        width: 50%; height: 45%;
+    }
+    .lua{
+        width: 80%; height: 50%;
+    }
+    .buraco-negro{
+        width: 60%; height: 50%;
+    }
+}
+
+
 /*# sourceMappingURL=maps/style.css.map */
