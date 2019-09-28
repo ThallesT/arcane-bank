@@ -3,6 +3,7 @@ package com.gtbr.arcanebank.controller;
 
 import com.gtbr.arcanebank.crud.ClienteCrud;
 import com.gtbr.arcanebank.crud.ContaCrud;
+import com.gtbr.arcanebank.dto.ContaDTO;
 import com.gtbr.arcanebank.entity.Cliente;
 import com.gtbr.arcanebank.entity.Conta;
 import com.gtbr.arcanebank.servico.ContaServico;
@@ -137,11 +138,11 @@ public class ClienteController {
         HttpSession session = request.getSession();
         String id = session.getAttribute("usuarioLogado").toString();
         Cliente cliente = clienteCrud.getClienteById(Long.valueOf(id));
-        Conta conta = contaCrud.getContaByIdCliente(cliente.getIdCliente());
+        ContaDTO contaDTO = contaCrud.getContaDTOByIdCliente(cliente.getIdCliente());
 
         session.setMaxInactiveInterval(60*5);
-        session.setAttribute("usuarioLogado", conta.getIdCliente());
-        model.addAttribute("conta", conta);
+        session.setAttribute("usuarioLogado", contaDTO.getConta().getIdCliente());
+        model.addAttribute("contaDTO", contaDTO);
         return "/area-do-cliente/paginaPrincipal.html";
 
     }

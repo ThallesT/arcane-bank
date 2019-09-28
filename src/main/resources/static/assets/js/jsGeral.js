@@ -1,6 +1,17 @@
 $(document).on('click', 'a[endpoint]', function (event) {
     var endpoint = $(this).attr('endpoint');
-    $("#content").load("/"+endpoint);
+    $("#divConteudo").load("/"+endpoint);
+});
+
+$(document).on('click', '.nav-item', function (event) {
+    $('.active').removeClass("active");
+    $(this).addClass("active");
+});
+
+$(document).on('click', 'a[menu]', function (event) {
+    $('.active').removeClass("active");
+    var classe = '.menu-'+$(this).attr('menu');
+    $(classe).addClass("active");
 });
 
 $(document).on('submit', '.form-ajax', function (event) {
@@ -8,6 +19,7 @@ $(document).on('submit', '.form-ajax', function (event) {
     ajaxSubmitForm(form);
     return false;
 });
+
 
 $(document).on('submit', '.img-ajax', function (event) {
     var form = event.target;
@@ -35,6 +47,21 @@ function ajaxSubmitForm(form) {
         });
 
 }
+
+$(document).on('submit', '.form-transferencia', function (event) {
+    var quantidade = $('.quantidade').val();
+    var saldo = $('.saldo').attr('saldo');
+    var saldoT = parseFloat(saldo);
+    var quantidadeFormatada = parseFloat(quantidade.toString().replace(".", "").replace(",", "."));
+    if(quantidadeFormatada <= saldoT){
+        var form = event.target;
+        ajaxSubmitForm(form);
+        return false;
+    }else{
+        alert('saldo insuficiente')
+    }
+});
+
 
 function ajaxUploadForm(form) {
     var formData = new FormData(form);

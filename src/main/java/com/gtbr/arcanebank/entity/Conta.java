@@ -44,8 +44,17 @@ public class Conta {
     @Column(name = "limite")
     private Double limite;
 
+    @Column(name = "pontos")
+    private Long pontos;
 
 
+    public Long getPontos() {
+        return pontos;
+    }
+
+    public void setPontos(Long pontos) {
+        this.pontos = pontos;
+    }
 
     public Long getIdConta() {
         return idConta;

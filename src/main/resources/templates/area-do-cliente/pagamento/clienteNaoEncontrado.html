@@ -1,0 +1,25 @@
+<div th:fragment="divCard" th:remove="tag">
+    <div class="card card-stats">
+        <div class="card-header card-header-primary card-header-icon">
+            <div class="card-icon">
+                <i class="material-icons">swap_horiz</i>
+            </div>
+            <h3 class="card-title">Transferencia</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <i class="material-icons text-center text-danger" style="font-size: 72px;">remove_circle_outline</i>
+                    <h3>Cliente nao encontrado</h3>
+                    <div class="clearfix"></div>
+                    <div class="card-footer row">
+                        <div class="col-md-12 text-center">
+                            <a class="btn btn-primary text-white" endpoint="pagamento">Tentar novamente</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -49,26 +49,26 @@
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li class="nav-item active  ">
-                    <a class="nav-link" href="#">
+                <li class="nav-item active menu-conta ">
+                    <a class="nav-link" onClick="document.location.reload(true)" href="javascript:void(0);">
                         <i class="material-icons">account_balance</i>
                         <p>Minha conta</p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" >
                         <i class="material-icons">person</i>
                         <p>Meu perfil</p>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">
-                        <i class="material-icons">receipt</i>
+                <li class="nav-item menu-extrato">
+                    <a class="nav-link" endpoint="extrato" href="javascript:void(0);">
+                        <i class="material-icons" >receipt</i>
                         <p>Extrato</p>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">
+                <li class="nav-item menu-pagamento">
+                    <a class="nav-link" endpoint="pagamento" href="javascript:void(0);">
                         <i class="material-icons">attach_money</i>
                         <p>Pagamentos</p>
                     </a>
@@ -81,7 +81,7 @@
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" th:text="${conta.cliente.nome +' '+ conta.cliente.sobrenome}"></a>
+                    <a class="navbar-brand" th:text="${contaDTO.conta.cliente.nome +' '+ contaDTO.conta.cliente.sobrenome}"></a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -159,7 +159,7 @@
                                 </div>
                                 <p class="card-category">Limite de crédito</p>
                                 <h3 class="card-title"
-                                    th:text="${'R$ '+#numbers.formatDecimal(conta.limite, 0, 'POINT', 2, 'COMMA')}"></h3>
+                                    th:text="${'R$ '+#numbers.formatDecimal(contaDTO.conta.limite, 0, 'POINT', 2, 'COMMA')}"></h3>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
@@ -177,11 +177,11 @@
                                 </div>
                                 <p class="card-category">Saldo em conta</p>
                                 <h3 class="card-title"
-                                    th:text="${'R$ '+#numbers.formatDecimal(conta.saldo, 0, 'POINT', 2, 'COMMA')}"></h3>
+                                    th:text="${'R$ '+#numbers.formatDecimal(contaDTO.conta.saldo, 0, 'POINT', 2, 'COMMA')}"></h3>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons">receipt</i> Ver extrato
+                                    <i class="material-icons">receipt</i> <a endpoint="extrato" menu="extrato" href="javascript:void(0);">Ver extrato</a>
                                 </div>
                             </div>
                         </div>
@@ -193,11 +193,11 @@
                                     <i class="material-icons">shopping_cart</i>
                                 </div>
                                 <p class="card-category">Transações</p>
-                                <h3 class="card-title">75</h3>
+                                <h3 class="card-title" th:text="${contaDTO.listaTransacao.size()}"></h3>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
-                                    <i class="material-icons">receipt</i> Ver extrato
+                                    <i class="material-icons">receipt</i> <a endpoint="extrato" menu="extrato" href="javascript:void(0);">Ver extrato</a>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +209,7 @@
                                     <i class="material-icons">loyalty</i>
                                 </div>
                                 <p class="card-category">Pontos</p>
-                                <h3 class="card-title">2</h3>
+                                <h3 class="card-title" th:text="${contaDTO.conta.pontos}"></h3>
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
@@ -220,70 +220,70 @@
                     </div>
                 </div>
                 <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <div class="card">
-                        <div class="card-header card-header-tabs card-header-primary">
-                            <div class="nav-tabs-navigation">
-                                <div class="nav-tabs-wrapper">
-                                    <span class="nav-tabs-title">Detalhes da conta:</span>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-tabs card-header-primary">
+                                <div class="nav-tabs-navigation">
+                                    <div class="nav-tabs-wrapper">
+                                        <span class="nav-tabs-title">Detalhes da conta:</span>
 
 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="tab-content">
-                                <div class="tab-pane active text-center" id="profile">
-                                    <span class="h4 font-weight-bold">Agência:</span><span class="h4"
-                                                                                           th:text="${conta.agencia}"></span><br/>
-                                    <span class="h4 font-weight-bold">Conta:</span><span class="h4"
-                                                                                         th:text="${conta.conta}"></span><br/>
-                                    <span class="h4 font-weight-bold">CPF:</span><span class="h4"
-                                                                                       th:text="${conta.cliente.cpf}"></span><br/>
-                                    <span class="h4 font-weight-bold"> Nome:</span><span class="h4"
-                                                                                         th:text="${conta.cliente.nome + ' ' + conta.cliente.sobrenome}"></span><br/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="card">
-                        <div class="card-header card-header-tabs card-header-primary">
-                            <div class="nav-tabs-navigation">
-                                <div class="nav-tabs-wrapper">
-                                    <span class="nav-tabs-title">Detalhes do cartão:</span>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="tab-content">
-                                <div th:if="${conta.cartao != null}" class="tab-pane active text-center" id="cards">
-                                    <span class="h4 font-weight-bold"> Nome Impresso:</span><span class="h4"
-                                                                                         th:text="${conta.cartao.nomeImpresso}"></span><br/>
-                                    <span class="h4 font-weight-bold">Numero:</span><span class="h4"
-                                                                                          th:text="${conta.cartao.numero}"></span><br/>
-
-                                    <span class="h4 font-weight-bold">Vencimento:</span><span class="h4"
-                                                                                              th:text="${#dates.format(conta.cartao.dataDeVencimento, 'MM/yy')}"></span><br/>
-                                    <span class="h4 font-weight-bold">Emissao:</span><span class="h4"
-                                                                                           th:text="${#dates.format(conta.cartao.dataDaEmissao, 'MM/yy')}"></span><br/>
-                                    <span class="h4 font-weight-bold">CVV:</span><span class="h4"
-                                                                                       th:text="${conta.cartao.cvv}"></span><br/>
-
-                                </div>
-                                <div th:if="${conta.cartao == null}" class="tab-pane active text-center" id="cards">
-                                    <span class="h4 font-weight-bold">Voce ainda nao tem cartao ativo!</span><br/>
-                                    <a class="btn-primary btn " th:href="${'/solicitar-cartao/'+conta.cliente.idCliente}">Solicitar cartao</a>
-                                    <br/>
-                                    <button class="btn-primary btn ">Desbloquear cartao</button>
+                            <div class="card-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane active text-center" id="profile">
+                                        <span class="h4 font-weight-bold">Agência:</span><span class="h4"
+                                                                                               th:text="${contaDTO.conta.agencia}"></span><br/>
+                                        <span class="h4 font-weight-bold">Conta:</span><span class="h4"
+                                                                                             th:text="${contaDTO.conta.conta}"></span><br/>
+                                        <span class="h4 font-weight-bold">CPF:</span><span class="h4"
+                                                                                           th:text="${contaDTO.conta.cliente.cpf}"></span><br/>
+                                        <span class="h4 font-weight-bold"> Nome:</span><span class="h4"
+                                                                                             th:text="${contaDTO.conta.cliente.nome + ' ' + contaDTO.conta.cliente.sobrenome}"></span><br/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-tabs card-header-primary">
+                                <div class="nav-tabs-navigation">
+                                    <div class="nav-tabs-wrapper">
+                                        <span class="nav-tabs-title">Detalhes do cartão:</span>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content">
+                                    <div th:if="${contaDTO.conta.cartao != null}" class="tab-pane active text-center" id="cards">
+                                        <span class="h4 font-weight-bold"> Nome Impresso:</span><span class="h4"
+                                                                                                      th:text="${contaDTO.conta.cartao.nomeImpresso}"></span><br/>
+                                        <span class="h4 font-weight-bold">Numero:</span><span class="h4"
+                                                                                              th:text="${contaDTO.conta.cartao.numero}"></span><br/>
+
+                                        <span class="h4 font-weight-bold">Vencimento:</span><span class="h4"
+                                                                                                  th:text="${#dates.format(contaDTO.conta.cartao.dataDeVencimento, 'MM/yy')}"></span><br/>
+                                        <span class="h4 font-weight-bold">Emissao:</span><span class="h4"
+                                                                                               th:text="${#dates.format(contaDTO.conta.cartao.dataDaEmissao, 'MM/yy')}"></span><br/>
+                                        <span class="h4 font-weight-bold">CVV:</span><span class="h4"
+                                                                                           th:text="${contaDTO.conta.cartao.cvv}"></span><br/>
+
+                                    </div>
+                                    <div th:if="${contaDTO.conta.cartao == null}" class="tab-pane active text-center" id="cards">
+                                        <span class="h4 font-weight-bold">Voce ainda nao tem cartao ativo!</span><br/>
+                                        <a class="btn-primary btn " th:href="${'/solicitar-cartao/'+contaDTO.conta.cliente.idCliente}">Solicitar cartao</a>
+                                        <br/>
+                                        <button class="btn-primary btn ">Desbloquear cartao</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -380,6 +380,13 @@
 <script src="../material-dashboard/assets/js/core/popper.min.js"></script>
 <script src="../material-dashboard/assets/js/core/bootstrap-material-design.min.js"></script>
 <script src="../material-dashboard/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<script src="/assets/js/jsGeral.js"></script>
+<script src="/assets/js/jquery.mask.js"></script>
+<script src="/assets/js/mask.js"></script>
+<script>
+    aplicarMask();
+</script>
+
 <!-- Plugin for the momentJs  -->
 <script src="../material-dashboard/assets/js/plugins/moment.min.js"></script>
 <!--  Plugin for Sweet Alert -->

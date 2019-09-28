@@ -1,7 +1,9 @@
 package com.gtbr.arcanebank.crud;
 
+import com.gtbr.arcanebank.dto.ContaDTO;
 import com.gtbr.arcanebank.entity.Cartao;
 import com.gtbr.arcanebank.entity.Conta;
+import com.gtbr.arcanebank.entity.Transacao;
 import com.gtbr.arcanebank.repository.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -9,12 +11,15 @@ import org.springframework.stereotype.Component;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Component
 public class ContaCrud {
 
     @Autowired
     private ContaRepository contaRepository;
+    @Autowired
+    private TransacaoCrud transacaoCrud;
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -32,6 +37,7 @@ public class ContaCrud {
             conta.setLimite(0.0);
             conta.setFoto(null);
             conta.setIdCartao(null);
+            conta.setPontos(0L);
 
             return contaRepository.save(conta);
 
@@ -57,5 +63,12 @@ public class ContaCrud {
     public Conta getContaByIdCliente(Long idCliente) {
         return contaRepository.getContaByIdCliente(idCliente);
 
+    }
+
+    public ContaDTO getContaDTOByIdCliente(Long idCliente) {
+        ContaDTO contaDTO = new ContaDTO();
+        contaDTO.setConta(getContaByIdCliente(idCliente));
+        contaDTO.setListaTransacao(transacaoCrud.getListaTransacaoByidCliente(idCliente));
+        return contaDTO;
     }
 }

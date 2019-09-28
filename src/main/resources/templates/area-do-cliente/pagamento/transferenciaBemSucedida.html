@@ -1,0 +1,72 @@
+<div th:fragment="divCard" th:remove="tag">
+    <div class="card card-stats">
+        <div class="card-header card-header-primary card-header-icon">
+            <div class="card-icon">
+                <i class="material-icons">swap_horiz</i>
+            </div>
+            <h3 class="card-title">Transferencia</h3>
+        </div>
+        <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <i class="material-icons text-center text-success" style="font-size: 72px;">check_circle_outline</i>
+                        <h3>A transferencia foi um sucesso!</h3>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Nome</label>
+                            <input type="text" class="form-control"
+                                   th:value="${transacao.contaDestino.cliente.nome +' '+ transacao.contaDestino.cliente.sobrenome}"
+                                   readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">CPF</label>
+                            <input type="text" class="form-control"
+                                   th:value="${transacao.contaDestino.cliente.cpf}"
+                                   readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Agencia</label>
+                            <input type="text" class="form-control"
+                                   th:value="${transacao.contaDestino.agencia}"
+                                   readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Conta</label>
+                            <input type="text" class="form-control"
+                                   th:value="${transacao.contaDestino.conta}"
+                                   readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Valor</label>
+                            <input type="text" th:value="${'R$ '+#numbers.formatDecimal(transacao.valor, 0, 'POINT', 2, 'COMMA')}"
+                                   class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="card-footer row">
+                        <div class="col-md-12 text-center">
+                            <a class="btn btn-primary text-white" endpoint="pagamento">Pronto</a>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <span class="text-gray"
+                                  th:text="${'Codigo de autenticacao: '+transacao.idTransacao}"></span>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <script>
+        aplicarMask();
+    </script>
+</div>
+

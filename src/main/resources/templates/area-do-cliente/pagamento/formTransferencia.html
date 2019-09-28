@@ -1,0 +1,64 @@
+<div th:fragment="divCard" th:remove="tag">
+    <div class="card card-stats">
+        <div class="card-header card-header-primary card-header-icon">
+            <div class="card-icon">
+                <i class="material-icons">swap_horiz</i>
+            </div>
+            <h3 class="card-title">Transferir</h3>
+        </div>
+        <div class="card-body">
+            <form class="form-transferencia" action="/pagamento/transferir" data-target="divCard">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Nome</label>
+                            <input type="text" class="form-control"
+                                   th:value="${contaDestino.cliente.nome +' '+ contaDestino.cliente.sobrenome}"
+                                   disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">CPF</label>
+                            <input type="text" name="cpf" class="form-control"
+                                   th:value="${contaDestino.cliente.cpf}"
+                                   readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Agencia</label>
+                            <input type="text" class="form-control"
+                                   th:value="${contaDestino.agencia}"
+                                   disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Conta</label>
+                            <input type="text" class="form-control"
+                                   th:value="${contaDestino.conta}"
+                                   disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Valor</label>
+                            <input type="text" th:id="${contaDestino?.idConta}" name="quantidade"
+                                   class="form-control moeda quantidade"
+                                   placeholder="00,00">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="card-footer justify-content-center">
+                        <button class="btn btn-primary" id="botao-transf">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        aplicarMask();
+    </script>
+</div>
+

@@ -1,0 +1,111 @@
+<div th:fragment="divConteudo">
+    <div id="divContent">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title">Seus dados</h4>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Nome</label>
+                                                <input type="text" class="form-control"
+                                                       th:value="${conta.cliente.nome +' '+ conta.cliente.sobrenome}"
+                                                       disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">CPF</label>
+                                                <input type="text" class="form-control" th:value="${conta.cliente.cpf}"
+                                                       disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">RG</label>
+                                                <input type="email" class="form-control" th:value="${conta.cliente.rg}"
+                                                       disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Email</label>
+                                                <input type="text" class="form-control"
+                                                       th:value="${conta.cliente.email}" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Agencia</label>
+                                                <input type="text" class="form-control" th:value="${conta.agencia}"
+                                                       disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Conta</label>
+                                                <input type="text" class="form-control" th:value="${conta.conta}"
+                                                       disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Saldo</label>
+                                                <input type="text" class="form-control saldo" th:saldo="${conta.saldo}"
+                                                       th:value="${'R$ '+#numbers.formatDecimal(conta.saldo, 0, 'POINT', 2, 'COMMA')}"
+                                                       disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Pontos</label>
+                                                <input type="text" class="form-control" th:value="${conta.pontos}"
+                                                       disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" id="divCard">
+                        <div class="card card-stats">
+                            <div class="card-header card-header-primary card-header-icon">
+                                <div class="card-icon">
+                                    <i class="material-icons">swap_horiz</i>
+                                </div>
+                                <h3 class="card-title">Transferir</h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="form-ajax" action="/pagamento/buscar-destinatario" data-target="divCard">
+                                    <div class="form-group input-group">
+                                        <label class="bmd-label-floating">CPF</label>
+                                        <input type="text" name="cpf" class="form-control cpf">
+                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                            <i class="material-icons">search</i>
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <script>
+                            aplicarMask();
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
