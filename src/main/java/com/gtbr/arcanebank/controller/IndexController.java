@@ -13,6 +13,12 @@ public class IndexController {
         return "index.html";
     }
 
+    @RequestMapping("/timeout")
+    public String timeout() {
+
+        return "sessaoFinalizada.html";
+    }
+
 
 
 }

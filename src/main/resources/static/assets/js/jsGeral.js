@@ -58,7 +58,11 @@ $(document).on('submit', '.form-transferencia', function (event) {
         ajaxSubmitForm(form);
         return false;
     }else{
-        alert('saldo insuficiente')
+        alert('saldo insuficiente');
+        var form = event.target;
+        ajaxSubmitForm(form);
+        return false;
+
     }
 });
 

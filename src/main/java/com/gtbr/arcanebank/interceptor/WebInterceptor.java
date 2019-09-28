@@ -16,7 +16,7 @@ public class WebInterceptor extends HandlerInterceptorAdapter {
             throws Exception {
         String uri = request.getRequestURI();
 
-        if (uri.equals("/") || uri.equals("/logar") || uri.equals("/cliente/registrar") || uri.equals("/cliente/finalizar") || uri.equals("/cliente/finalizar-cadastro") || uri.equals("/cliente/confirmar-token") || uri.equals("/validar-login") || uri.contains("assets") || uri.contains("kross-master") || uri.contains("material-dashboard") || uri.contains("static")) {
+        if (uri.equals("/") || uri.equals("/logar") || uri.equals("/timeout") || uri.equals("/cliente/registrar") || uri.equals("/cliente/finalizar") || uri.equals("/cliente/finalizar-cadastro") || uri.equals("/cliente/confirmar-token") || uri.equals("/validar-login") || uri.contains("assets") || uri.contains("kross-master") || uri.contains("material-dashboard") || uri.contains("static")) {
             return true;
         }
         if (request.getSession().getAttribute("usuarioLogado") != null) {
@@ -27,7 +27,7 @@ public class WebInterceptor extends HandlerInterceptorAdapter {
                 return true;
             }
         }
-        response.sendRedirect("/");
+        response.sendRedirect("/timeout");
         return false;
     }
 }

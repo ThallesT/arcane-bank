@@ -345,7 +345,6 @@ a:hover {
     max-width: 28rem;
     left: 0;
     right: 0;
-    margin: 1rem auto 0;
     background-color: #fff;
     border-radius: .5rem;
     box-shadow: 0 0 1.8rem rgba(0, 0, 0, .15);
@@ -939,6 +938,14 @@ blockquote {
 
 .filter-controls li.active {
     font-weight: bold;
+}
+
+.centralizar {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
 }
 
 @media only screen and (max-width: 600px) {

@@ -59,12 +59,15 @@ public class TransacaoController {
 
     @RequestMapping("/pagamento/transferir")
     public String efetuaTransferencia(HttpServletRequest request, @RequestParam("cpf")String cpf, @RequestParam("quantidade")String quantidade, Model model){
+        Long idCliente = Long.parseLong(request.getSession().getAttribute("usuarioLogado").toString());
         Cliente cliente = clienteCrud.getClienteByCpf(cpf);
         if(cliente == null) return "/area-do-cliente/pagamento/clienteNaoEncontrado.html";
+        if(cliente.getIdCliente() == idCliente) return "/area-do-cliente/pagamento/naoAutorizado.html";
         Conta contaDestino = contaCrud.getContaByIdCliente(cliente.getIdCliente());
         if(contaDestino == null) return "/area-do-cliente/pagamento/clienteNaoEncontrado.html";
         Double valor = Double.parseDouble(quantidade.replaceAll("\\.", "").replaceAll(",", "\\."));
-        Transacao transacao = transacaoServico.efetuaTransferencia(Long.parseLong(request.getSession().getAttribute("usuarioLogado").toString()) , contaDestino, valor);
+        Transacao transacao = transacaoServico.efetuaTransferencia(idCliente , contaDestino, valor);
+        if(transacao == null) return "/area-do-cliente/pagamento/saldoInsuficiente.html";
 
         model.addAttribute("transacao", transacao);
 
