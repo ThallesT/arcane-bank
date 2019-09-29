@@ -21,6 +21,8 @@ tudo armazenado em um banco de dados postgresql.
  -AJAX, uma ferramenta que foi muito utilizada no sistema por inteiro.
  
  
+# prints da area do cliente
+ 
 ![Area do cliente inicial](https://i.imgur.com/zIesAlo.png)
 ![Area do cliente extrato](https://i.imgur.com/VnC0o4I.png)
 ![Area do cliente pagamento](https://i.imgur.com/v0VPw8M.png)
