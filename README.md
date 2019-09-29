@@ -2,8 +2,7 @@
 
 ![Pagina inicial](https://i.imgur.com/R41lw4U.png)
 
-Este sistema conta com uma página inicial para promover o conteudo, e uma area para os clientes
-tudo armazenado em um banco de dados postgresql.
+Este sistema conta com uma página inicial para promover o conteudo, e uma area para os clientes. O armazenamento dos dados é todo em um banco de dados postgresql.
 
 # Back-end
 
