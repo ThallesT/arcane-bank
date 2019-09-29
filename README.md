@@ -1,4 +1,4 @@
-# arcane-bank
+# Arcane Bank
 
 ![Pagina inicial](https://i.imgur.com/R41lw4U.png)
 
@@ -26,4 +26,5 @@ Este sistema conta com uma página inicial para promover o conteudo, e uma area 
 ![Area do cliente extrato](https://i.imgur.com/VnC0o4I.png)
 ![Area do cliente pagamento](https://i.imgur.com/v0VPw8M.png)
  
+Qualquer duvida pode entrar em contato tanto por telefone quanto por email: Thalles@GTBR.xyz
 
