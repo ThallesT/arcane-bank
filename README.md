@@ -8,9 +8,9 @@ Este sistema conta com uma página inicial para promover o conteudo, e uma area 
 
 • inteiramente construído em java/spring-boot + hibernate.
 - Funções
-  Envio de e-mail e autenticação por token.
-  Criptografia robusta da senha.
-  Todo um sistema bancario rodando
+  •Envio de e-mail e autenticação por token.
+  •Criptografia robusta da senha.
+  •Todo um sistema bancario rodando
  
 # Front-end
 
